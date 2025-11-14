@@ -2,6 +2,8 @@ package platform.app;
 
 import platform.course.Course;
 import platform.facade.EducationSystem;
+import platform.users.Student;
+import platform.users.User;
 
 public class Main {
 	public static EducationSystem educationSystem;
@@ -32,5 +34,9 @@ public class Main {
                 + " | features=" + coursePremium.getFeatures());
 
 		System.out.println("Recommended courses: " + educationSystem.getRecommendedCourses());
+
+		Student student = educationSystem.createStudent();
+		educationSystem.subscribe(student);
+		educationSystem.announce("announce");
     }
 }

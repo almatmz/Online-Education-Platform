@@ -2,8 +2,10 @@ package platform.facade;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import platform.builder.CourseDirector;
 import platform.builder.OnlineCourseBuilder;
@@ -16,14 +18,20 @@ import platform.course.recommendation.interfaces.RecommendationStrategy;
 import platform.decorator.CertificateCourseDecorator;
 import platform.decorator.ExtraMaterialDecorator;
 import platform.facade.types.EducationSystemCourse;
+import platform.factory.StudentFactory;
+import platform.observer.AnnouncementPublisher;
+import platform.observer.AnnouncementSubscriber;
+import platform.users.Student;
 
-public class EducationSystem {
+public class EducationSystem implements AnnouncementPublisher {
 	private static RecommendationStrategy popularCourseRecommendation = new PopularCourseStrategy();
 	private static RecommendationStrategy skillBasedCourseRecommendation = new SkillBasedStrategy();
 
 	private CourseDirector onlineCourseDirector = new CourseDirector(new OnlineCourseBuilder());
+	private StudentFactory studentFactory = new StudentFactory();
 
 	private Map<String, EducationSystemCourse> courses = new HashMap<>();
+	private Set<AnnouncementSubscriber> subscribers = new HashSet<>();
 
 	public EducationSystem() {}
 
@@ -123,5 +131,26 @@ public class EducationSystem {
 		}
 
 		courseData.extraMaterialFee = extraMaterialFee;
+	}
+
+	public Student createStudent() {
+		return this.studentFactory.createUser();
+	}
+
+	@Override
+	public void subscribe(AnnouncementSubscriber subscriber) {
+		this.subscribers.add(subscriber);
+	}
+
+	@Override
+	public void unsubscribe(AnnouncementSubscriber subscriber) {
+		this.subscribers.remove(subscriber);
+	}
+
+	@Override
+	public void announce(String text) {
+		for (AnnouncementSubscriber subscriber : this.subscribers) {
+			subscriber.announcement(text);
+		}
 	}
 }
