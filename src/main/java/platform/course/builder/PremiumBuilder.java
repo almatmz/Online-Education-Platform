@@ -1,8 +1,8 @@
 package platform.course.builder;
 
 import platform.course.Course;
-import platform.decorator.CertificateCourseDecorator;
-import platform.decorator.ExtraMaterialCourseDecorator;
+import platform.course.decorator.CertificateCourseDecorator;
+import platform.course.decorator.ExtraMaterialCourseDecorator;
 
 public class PremiumBuilder extends BasicBuilder<PremiumBuilder> {
 	private float certificateFee;

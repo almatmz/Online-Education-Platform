@@ -1,7 +1,7 @@
 package platform.course.builder;
 
 import platform.course.Course;
-import platform.decorator.CertificateCourseDecorator;
+import platform.course.decorator.CertificateCourseDecorator;
 
 public class CertificatedBuilder extends BasicBuilder<CertificatedBuilder> {
 	private float certificateFee;

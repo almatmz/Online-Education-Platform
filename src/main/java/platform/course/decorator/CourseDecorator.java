@@ -1,4 +1,4 @@
-package platform.decorator;
+package platform.course.decorator;
 
 import platform.course.Course;
 import platform.course.module.Module;
