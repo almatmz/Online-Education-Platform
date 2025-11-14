@@ -12,6 +12,7 @@ public class CertificateCourseDecorator extends CourseDecorator {
 
     public CertificateCourseDecorator(Course inner, float certificateFee) {
         super(inner);
+
         this.certificateFee = certificateFee;
         this.features = new ArrayList<>(inner.getFeatures());
         this.features.add("certificate");
@@ -19,11 +20,11 @@ public class CertificateCourseDecorator extends CourseDecorator {
 
     @Override
     public float getPrice() {
-        return inner.getPrice() + certificateFee;
+        return this.inner.getPrice() + certificateFee;
     }
 
     @Override
     public List<String> getFeatures() {
-        return Collections.unmodifiableList(features);
+        return Collections.unmodifiableList(this.features);
     }
 }

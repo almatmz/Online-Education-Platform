@@ -1,15 +1,22 @@
 package platform.course;
 
 import java.util.List;
+import java.util.Set;
+import java.util.UUID;
+
+import platform.course.module.Module;
+import platform.course.quiz.Quiz;
+import platform.users.Student;
 
 public interface Course {
-    String getId();
+    UUID getId();
     String getTitle();
-    String getDescription();
     List<Module> getModules();
     List<Quiz> getQuizzes();
-	int getDifficulty();
     float getPrice();
+	int getDifficulty();
     List<String> getFeatures();
-    String summary();
+	Set<Student> getEnrolledStudents();
+	void addEnrolledStudent(Student student);
+	void removeEnrolledStudent(Student student);
 }

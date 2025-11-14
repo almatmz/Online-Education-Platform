@@ -1,4 +1,4 @@
-package platform.course;
+package platform.course.module;
 
 public class Module {
     private final String title;
@@ -9,6 +9,11 @@ public class Module {
         this.content = content;
     }
 
-    public String getTitle() { return title; }
-    public String getContent() { return content; }
+    public String getTitle() {
+		return this.title;
+	}
+
+    public String getContent() {
+		return this.content;
+	}
 }

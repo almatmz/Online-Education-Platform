@@ -1,4 +1,4 @@
-package platform.course;
+package platform.course.quiz;
 
 public class Quiz {
     private final String title;
@@ -9,6 +9,11 @@ public class Quiz {
         this.questionsCount = questionsCount;
     }
 
-    public String getTitle() { return title; }
-    public int getQuestionsCount() { return questionsCount; }
+    public String getTitle() {
+		return this.title;
+	}
+
+    public int getQuestionsCount() {
+		return this.questionsCount;
+	}
 }

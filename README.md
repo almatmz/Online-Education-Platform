@@ -6,7 +6,7 @@
 
 ## UML
 
-![UML](/final/assets/uml.svg)
+![UML](/assets/uml.svg)
 
 ## Requirements
 

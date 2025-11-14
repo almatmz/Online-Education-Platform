@@ -8,6 +8,10 @@ import platform.course.recommendation.interfaces.RecommendationStrategy;
 public class SkillBasedStrategy implements RecommendationStrategy {
 	@Override
 	public List<Course> recommend(RecommendationContext context) {
-		return context.availableCourses.stream().sorted((a, b) -> a.difficulty - b.difficulty).map((course) -> course.course).toList();
+		int studentSkill = context.student.getSkill();
+
+		return context.availableCourses.stream()
+										.sorted((a, b) -> Math.abs(a.getDifficulty() - studentSkill) - Math.abs(b.getDifficulty() - studentSkill))
+										.toList();
 	}
 }
