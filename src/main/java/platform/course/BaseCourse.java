@@ -11,6 +11,7 @@ public class BaseCourse implements Course {
     private final List<Module> modules;
     private final List<Quiz> quizzes;
     private final float basePrice;
+	private final int difficulty;
     private final List<String> features;
 
     public BaseCourse(
@@ -19,7 +20,8 @@ public class BaseCourse implements Course {
             String description,
             List<Module> modules,
             List<Quiz> quizzes,
-            float basePrice
+            float basePrice,
+			int difficulty
     ) {
         this.id = id;
         this.title = title;
@@ -27,6 +29,7 @@ public class BaseCourse implements Course {
         this.modules = new ArrayList<>(modules);
         this.quizzes = new ArrayList<>(quizzes);
         this.basePrice = basePrice;
+		this.difficulty = difficulty;
         this.features = new ArrayList<>();
         this.features.add("base");
     }
@@ -38,6 +41,7 @@ public class BaseCourse implements Course {
     @Override public List<Quiz> getQuizzes() { return Collections.unmodifiableList(quizzes); }
     @Override public float getPrice() { return basePrice; }
     @Override public List<String> getFeatures() { return Collections.unmodifiableList(features); }
+	@Override public int getDifficulty() { return difficulty; }
 
     protected List<String> mutableFeatures() { return features; }
 

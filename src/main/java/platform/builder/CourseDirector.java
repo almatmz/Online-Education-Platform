@@ -11,21 +11,23 @@ public class CourseDirector {
         this.builder = builder;
     }
 
-    public Course buildMinimal(String id, String title, String description, float basePrice) {
+    public Course buildMinimal(String id, String title, String description, float basePrice, int difficulty) {
         return builder.reset()
                 .setId(id)
                 .setTitle(title)
                 .setDescription(description)
                 .setBasePrice(basePrice)
+				.setDifficulty(difficulty)
                 .build();
     }
 
-    public Course buildWithModulesAndQuizTemplate(String id, String title, String description, float basePrice) {
+    public Course buildWithModulesAndQuizTemplate(String id, String title, String description, float basePrice, int difficulty) {
         return builder.reset()
                 .setId(id)
                 .setTitle(title)
                 .setDescription(description)
                 .setBasePrice(basePrice)
+				.setDifficulty(difficulty)
                 .addModule(new Module("Introduction", "Welcome and overview"))
                 .addModule(new Module("Core Concepts", "Key topics explained"))
                 .addQuiz(new Quiz("Module 1 Quiz", 10))

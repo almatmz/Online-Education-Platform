@@ -16,6 +16,7 @@ public abstract class CourseDecorator implements Course {
     @Override public String getId() { return inner.getId(); }
     @Override public String getTitle() { return inner.getTitle(); }
     @Override public String getDescription() { return inner.getDescription(); }
+	@Override public int getDifficulty() { return inner.getDifficulty(); }
     @Override public List<Module> getModules() { return inner.getModules(); }
     @Override public List<Quiz> getQuizzes() { return inner.getQuizzes(); }
     @Override public List<String> getFeatures() { return inner.getFeatures(); }

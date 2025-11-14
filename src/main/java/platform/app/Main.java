@@ -13,7 +13,8 @@ public class Main {
 			"SE-101",
             "Intro to Software Design",
             "Learn core design patterns with practical examples.",
-            49.99f
+            49.99f,
+			2
 		);
 
 		educationSystem.setCourseCertificateFee(courseBase.getId(), 20.0f);

@@ -10,6 +10,7 @@ public interface CourseBuilder {
     CourseBuilder setTitle(String title);
     CourseBuilder setDescription(String description);
     CourseBuilder setBasePrice(float price);
+	CourseBuilder setDifficulty(int difficulty);
     CourseBuilder addModule(Module module);
     CourseBuilder addQuiz(Quiz quiz);
     Course build();

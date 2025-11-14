@@ -99,8 +99,8 @@ public class EducationSystem {
 		return this.courses.get(id).certificateFee != 0.0f;
 	}
 
-	public Course addCourse(String id, String title, String description, float price) {
-		Course course = this.onlineCourseDirector.buildWithModulesAndQuizTemplate(id, title, description, price);
+	public Course addCourse(String id, String title, String description, float price, int difficulty) {
+		Course course = this.onlineCourseDirector.buildWithModulesAndQuizTemplate(id, title, description, price, difficulty);
 
 		this.courses.put(course.getId(), new EducationSystemCourse(course));
 

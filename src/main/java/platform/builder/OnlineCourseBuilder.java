@@ -13,6 +13,7 @@ public class OnlineCourseBuilder implements CourseBuilder {
     private String title;
     private String description;
     private float basePrice;
+	private int difficulty;
     private final List<Module> modules = new ArrayList<>();
     private final List<Quiz> quizzes = new ArrayList<>();
 
@@ -31,11 +32,12 @@ public class OnlineCourseBuilder implements CourseBuilder {
     @Override public CourseBuilder setTitle(String title) { this.title = title; return this; }
     @Override public CourseBuilder setDescription(String description) { this.description = description; return this; }
     @Override public CourseBuilder setBasePrice(float price) { this.basePrice = price; return this; }
+    @Override public CourseBuilder setDifficulty(int difficulty) { this.difficulty = difficulty; return this; }
     @Override public CourseBuilder addModule(Module module) { this.modules.add(module); return this; }
     @Override public CourseBuilder addQuiz(Quiz quiz) { this.quizzes.add(quiz); return this; }
 
     @Override
     public Course build() {
-        return new BaseCourse(id, title, description, modules, quizzes, basePrice);
+        return new BaseCourse(id, title, description, modules, quizzes, basePrice, difficulty);
     }
 }
