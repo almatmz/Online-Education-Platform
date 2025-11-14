@@ -7,10 +7,10 @@ import java.util.Collections;
 import java.util.List;
 
 public class CertificateCourseDecorator extends CourseDecorator {
-    private final double certificateFee;
+    private final float certificateFee;
     private final List<String> features;
 
-    public CertificateCourseDecorator(Course inner, double certificateFee) {
+    public CertificateCourseDecorator(Course inner, float certificateFee) {
         super(inner);
         this.certificateFee = certificateFee;
         this.features = new ArrayList<>(inner.getFeatures());
@@ -18,7 +18,7 @@ public class CertificateCourseDecorator extends CourseDecorator {
     }
 
     @Override
-    public double getPrice() {
+    public float getPrice() {
         return inner.getPrice() + certificateFee;
     }
 

@@ -8,7 +8,7 @@ public interface Course {
     String getDescription();
     List<Module> getModules();
     List<Quiz> getQuizzes();
-    double getPrice();
+    float getPrice();
     List<String> getFeatures();
     String summary();
 }

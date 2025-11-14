@@ -10,7 +10,7 @@ public class BaseCourse implements Course {
     private final String description;
     private final List<Module> modules;
     private final List<Quiz> quizzes;
-    private final double basePrice;
+    private final float basePrice;
     private final List<String> features;
 
     public BaseCourse(
@@ -19,7 +19,7 @@ public class BaseCourse implements Course {
             String description,
             List<Module> modules,
             List<Quiz> quizzes,
-            double basePrice
+            float basePrice
     ) {
         this.id = id;
         this.title = title;
@@ -36,7 +36,7 @@ public class BaseCourse implements Course {
     @Override public String getDescription() { return description; }
     @Override public List<Module> getModules() { return Collections.unmodifiableList(modules); }
     @Override public List<Quiz> getQuizzes() { return Collections.unmodifiableList(quizzes); }
-    @Override public double getPrice() { return basePrice; }
+    @Override public float getPrice() { return basePrice; }
     @Override public List<String> getFeatures() { return Collections.unmodifiableList(features); }
 
     protected List<String> mutableFeatures() { return features; }
@@ -48,4 +48,14 @@ public class BaseCourse implements Course {
                 id, title, getPrice(), modules.size(), quizzes.size(), getFeatures()
         );
     }
+
+	@Override
+	public String toString() {
+		return this.summary();
+	}
+
+	@Override
+	public int hashCode() {
+		return this.id.hashCode();
+	}
 }

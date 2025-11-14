@@ -7,10 +7,10 @@ import java.util.Collections;
 import java.util.List;
 
 public class ExtraMaterialDecorator extends CourseDecorator {
-    private final double extraMaterialFee;
+    private final float extraMaterialFee;
     private final List<String> features;
 
-    public ExtraMaterialDecorator(Course inner, double extraMaterialFee) {
+    public ExtraMaterialDecorator(Course inner, float extraMaterialFee) {
         super(inner);
         this.extraMaterialFee = extraMaterialFee;
         this.features = new ArrayList<>(inner.getFeatures());
@@ -18,7 +18,7 @@ public class ExtraMaterialDecorator extends CourseDecorator {
     }
 
     @Override
-    public double getPrice() {
+    public float getPrice() {
         return inner.getPrice() + extraMaterialFee;
     }
 

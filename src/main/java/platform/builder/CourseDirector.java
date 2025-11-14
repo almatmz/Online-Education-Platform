@@ -11,7 +11,7 @@ public class CourseDirector {
         this.builder = builder;
     }
 
-    public Course buildMinimal(String id, String title, String description, double basePrice) {
+    public Course buildMinimal(String id, String title, String description, float basePrice) {
         return builder.reset()
                 .setId(id)
                 .setTitle(title)
@@ -20,7 +20,7 @@ public class CourseDirector {
                 .build();
     }
 
-    public Course buildWithModulesAndQuizTemplate(String id, String title, String description, double basePrice) {
+    public Course buildWithModulesAndQuizTemplate(String id, String title, String description, float basePrice) {
         return builder.reset()
                 .setId(id)
                 .setTitle(title)

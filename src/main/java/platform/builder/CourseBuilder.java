@@ -9,7 +9,7 @@ public interface CourseBuilder {
     CourseBuilder setId(String id);
     CourseBuilder setTitle(String title);
     CourseBuilder setDescription(String description);
-    CourseBuilder setBasePrice(double price);
+    CourseBuilder setBasePrice(float price);
     CourseBuilder addModule(Module module);
     CourseBuilder addQuiz(Quiz quiz);
     Course build();
