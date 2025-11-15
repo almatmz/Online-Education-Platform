@@ -83,7 +83,7 @@ public class BasicCourse implements Course {
 
 	@Override
 	public String toString() {
-		return String.format("[Course | %s] %s price, %s difficulty, %s students, %s modules, %s quizzes, features: %s", this.getTitle(), this.getPrice(), this.getDifficulty(), this.getEnrolledStudents().size(), this.getModules().size(), this.getQuizzes().size(), this.getFeatures());
+		return String.format("[Course | %s | %s] %s price, %s difficulty, %s students, %s modules, %s quizzes, features: %s", this.getTitle(), this.getId(), this.getPrice(), this.getDifficulty(), this.getEnrolledStudents().size(), this.getModules().size(), this.getQuizzes().size(), this.getFeatures());
 	}
 
 	@Override

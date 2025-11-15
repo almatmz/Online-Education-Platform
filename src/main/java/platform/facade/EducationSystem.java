@@ -1,6 +1,7 @@
 package platform.facade;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -15,14 +16,22 @@ import platform.observer.AnnouncementSubscriber;
 import platform.users.Student;
 
 public class EducationSystem implements AnnouncementPublisher {
-	private static RecommendationStrategy popularCourseRecommendation = new PopularCourseStrategy();
-	private static RecommendationStrategy skillBasedCourseRecommendation = new SkillBasedStrategy();
+	private final static RecommendationStrategy popularCourseRecommendation = new PopularCourseStrategy();
+	private final static RecommendationStrategy skillBasedCourseRecommendation = new SkillBasedStrategy();
 
 	private Set<Course> courses = new HashSet<>();
 	private Set<Student> students = new HashSet<>();
 	private Set<AnnouncementSubscriber> announcementSubscribers = new HashSet<>();
 
 	public EducationSystem() {}
+
+	public Set<Course> getCourses() {
+		return Collections.unmodifiableSet(this.courses);
+	}
+
+	public Set<Student> getStudents() {
+		return Collections.unmodifiableSet(this.students);
+	}
 
 	public void addCourse(Course course) {
 		this.courses.add(course);
@@ -40,6 +49,10 @@ public class EducationSystem implements AnnouncementPublisher {
 		this.students.remove(student);
 	}
 
+	public boolean isEnrolled(Student student, Course course) {
+		return student.getEnrolledCourses().contains(course);
+	}
+
 	public void enrollStudent(Student student, Course course) {
 		student.addEnrolledCourse(course);
 		course.addEnrolledStudent(student);
@@ -48,6 +61,10 @@ public class EducationSystem implements AnnouncementPublisher {
 	public void unenrollStudent(Student student, Course course) {
 		student.removeEnrolledCourse(course);
 		course.removeEnrolledStudent(student);
+	}
+
+	public boolean isSubscribed(AnnouncementSubscriber subscriber) {
+		return this.announcementSubscribers.contains(subscriber);
 	}
 
 	@Override
