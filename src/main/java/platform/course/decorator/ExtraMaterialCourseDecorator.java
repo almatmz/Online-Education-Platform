@@ -31,9 +31,9 @@ public class ExtraMaterialCourseDecorator extends CourseDecorator {
 	@Override
 	public String toString() {
 		if (this.inner instanceof CertificateCourseDecorator) {
-			return String.format("[Course (premium) | %s] %s price, %s difficulty, %s students, %s modules, %s quizzes, features: %s", this.getTitle(), this.getPrice(), this.getDifficulty(), this.getEnrolledStudents().size(), this.getModules().size(), this.getQuizzes().size(), this.getFeatures());
+			return String.format("[Course (premium) | %s | %s id] %s price, %s difficulty, %s students, %s modules, %s quizzes, features: %s", this.getTitle(),this.getId(), this.getPrice(), this.getDifficulty(), this.getEnrolledStudents().size(), this.getModules().size(), this.getQuizzes().size(), this.getFeatures());
 		}
 
-		return String.format("[Course (w/ extra material) | %s] %s price, %s difficulty, %s students, %s modules, %s quizzes, features: %s", this.getTitle(), this.getPrice(), this.getDifficulty(), this.getEnrolledStudents().size(), this.getModules().size(), this.getQuizzes().size(), this.getFeatures());
+		return String.format("[Course (w/ extra material) | %s | %s id] %s price, %s difficulty, %s students, %s modules, %s quizzes, features: %s", this.getTitle(),this.getId(), this.getPrice(), this.getDifficulty(), this.getEnrolledStudents().size(), this.getModules().size(), this.getQuizzes().size(), this.getFeatures());
 	}
 }
